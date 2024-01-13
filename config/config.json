@@ -1,0 +1,7 @@
+{
+    "client_id": "loginpudostarkencl",
+    "team_id": "UD45MY7MRL",
+    "key_id": "M62NV4DLY5",
+    "redirect_uri": "https://loginappleprueba.com",
+    "scope": "name email"
+  }
