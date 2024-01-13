@@ -1,6 +1,5 @@
 const express = require('express');
 const fs = require('fs');
-const https = require('https');
 const AppleAuth = require('apple-auth');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
@@ -10,14 +9,6 @@ const config = JSON.parse(fs.readFileSync("./config/config.json"));
 const applePrivateKey = fs.readFileSync("./config/AuthKey_M62NV4DLY5.p8").toString();
 
 const auth = new AppleAuth(config, applePrivateKey, "text");
-
-const sslCrtFile = '/Users/jaimediaz/certigicadosNode/cert.pem';
-const sslKeyFile = '/Users/jaimediaz/certigicadosNode/key.pem';
-
-const privateKey = fs.readFileSync(sslKeyFile, 'utf8');
-const certificate = fs.readFileSync(sslCrtFile, 'utf8');
-
-const credentials = { key: privateKey, cert: certificate };
 
 const app = express();
 app.use(cors());
@@ -44,9 +35,9 @@ app.post("/auth", async (req, res) => {
 });
 
 const PORT = 3001;
-const server = https.createServer(credentials, app).listen(PORT, () => {
+const server = app.listen(PORT, () => {
     const host = server.address().address;
     const port = server.address().port;
 
-    console.log(`Server running at https://${host}:${port}`);
-  });
+    console.log(`Server running at http://${host}:${port}`);
+});
