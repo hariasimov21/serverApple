@@ -1,7 +1,7 @@
 {
-    "client_id": "loginpudostarkencl",
+    "client_id": "com.pudo.prueba",
     "team_id": "UD45MY7MRL",
-    "key_id": "M62NV4DLY5",
+    "key_id": "DCP9TAQA3W",
     "redirect_uri": "https://loginappleprueba.com",
     "scope": "name email"
   }

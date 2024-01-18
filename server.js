@@ -10,7 +10,7 @@ const pg = require('pg');
 
 
 const config = JSON.parse(fs.readFileSync("./config/config.json"));
-const applePrivateKey = fs.readFileSync("./config/AuthKey_M62NV4DLY5.p8").toString();
+const applePrivateKey = fs.readFileSync("./config/AuthKey_DCP9TAQA3W.p8").toString();
 
 const auth = new AppleAuth(config, applePrivateKey, "text");
 
