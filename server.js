@@ -11,6 +11,7 @@ const pg = require('pg');
 
 const config = JSON.parse(fs.readFileSync("./config/config.json"));
 const applePrivateKey = fs.readFileSync("./config/AuthKey_DCP9TAQA3W.p8").toString();
+console.log("apple private key",applePrivateKey)
 
 const auth = new AppleAuth(config, applePrivateKey, "text");
 
@@ -51,7 +52,9 @@ app.get('/fecha', async (req, res) => {
 
 app.post("/auth", async (req, res) => {
     try {
+        console.log(req.body.authorization.code)
         const response = await auth.accessToken(req.body.authorization.code);
+        console.log("response", response)
         const idToken = jwt.decode(response.id_token);
         
         const user = { id: idToken.sub };
